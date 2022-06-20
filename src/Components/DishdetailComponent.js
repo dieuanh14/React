@@ -51,7 +51,7 @@ export default class DishdetailComponent extends Component {
           <div>
             <p>{item.comment}</p>
             <p>
-              {item.author} {item.date}
+              {item.author} {item.date.to}
             </p>
           </div>
         );

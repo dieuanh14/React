@@ -11,6 +11,7 @@ import Welcome from "./Components/Welcome";
 import { Form, Navbar, NavbarBrand } from "reactstrap";
 import MenuComponent from "./Components/MenuComponent";
 import {DISHES} from "./Components/dish";
+import MainComponent from "./Components/MainComponent";
 // import Hello from "./Components/Hello";
 // import { Hello2 } from "./Components/Hello2";
 
@@ -75,16 +76,19 @@ import {DISHES} from "./Components/dish";
 //   );
 // }
 class App extends React.Component{
-  // constructor(props){
-  //   super(props);
+  constructor(props){
+    super(props);
   //   this.state={
   //     dishes: DISHES
   //   };
-  // }
+  }
 
   render() {
     return(
-      <MenuComponent dishes={DISHES}/>
+      // <MenuComponent dishes={DISHES}/>
+      <div className="App">
+        <MainComponent/>
+      </div>
     )
   }
 

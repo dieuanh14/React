@@ -4,8 +4,6 @@ import React from "react";
 import Comment from "./Components/Comment";
 import Car from "./Components/Car";
 import Count from "./Components/Count";
-import Store from "./Components/Store";
-import Stock from "./Components/Stock";
 import Warning from "./Components/Warning";
 import Welcome from "./Components/Welcome";
 import { Form, Navbar, NavbarBrand } from "reactstrap";

@@ -1,4 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import GoogleIcon from "@mui/icons-material/Google";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailIcon from "@mui/icons-material/Mail";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function FooterComponent(props) {
   return (
@@ -9,38 +16,46 @@ export default function FooterComponent(props) {
             <h5>Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">Home</a>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <a href="#">About</a>
+                <Link to="/aboutus">About us</Link>
               </li>
               <li>
-                <a href="#">Menu</a>
+                <Link to="/menu">Menu</Link>
               </li>
               <li>
-                <a href="contactus.html">Contact</a>
+                <Link to="/contactus">Contact us</Link>
               </li>
             </ul>
           </div>
           <div className="col-7 col-sm-5">
             <h5>Our Address</h5>
             <address>
-              121, Clear Water Bay <br/>
-              Clear Water, Lowloon <br/>
-              Hong Kong <br/>
-              <i className="fa fa-phone fa-lg"></i> : +1449474722 <br/>
-              <i className="fa fa-fax fa-lg"></i> : +1436209374722 <br/>
-              <i className="fa fa-envelope fa-lg"></i> : <a href="mailto:confusion@gmail.com.net">confusion@gmail.com</a>
+              121, Clear Water Bay <br />
+              Clear Water, Lowloon <br />
+              Hong Kong <br />
+              <i><PhoneIcon/></i> : +1449474722 <br />
+              <i><PhoneIcon/></i> : +1436374722 <br />
+              <i><MailIcon/>
+              <a href="mailto:confusion@gmail.com.net">confusion@gmail</a>
+              </i>
             </address>
           </div>
-          <div className="col-12 col-sm-4 align-self-center">
+          <div className="icon" >
             <div className="text-center">
-              <a href="" className="btn btn-social-icon btn-google"><i className="fa fa-google-plus"></i></a>
-              <a href="" className="btn btn-social-icon btn-facebook"><i className="fa fa-facebook"></i></a>
-              <a href="" className="btn btn-social-icon btn-linkedin"><i className="fa fa-linkedin"></i></a>
-              <a href="" className="btn btn-social-icon btn-twitter"><i className="fa fa-twitter"></i></a>
-              <a href="" className="btn btn-social-icon "><i className="fa fa-envelope-o"></i></a>
-              <a href="" className="btn btn-social-icon btn-google"><i className="fa fa-envelope-o"></i></a>
+              <a href="" className="btn btn-social-icon btn-facebook">
+                <i ><FacebookIcon/></i>
+              </a>
+              <a href="" className="btn btn-social-icon btn-linkedin">
+                <i><TwitterIcon/></i>
+              </a>
+              <a href="" className="btn btn-social-icon btn-twitter">
+                <i ><InstagramIcon/></i>
+              </a>
+              <a href="" className="btn btn-social-icon ">
+              <i ><GoogleIcon/></i>
+              </a>
             </div>
           </div>
         </div>

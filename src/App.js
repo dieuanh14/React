@@ -2,47 +2,18 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import Comment from "./Components/Comment";
-import Car from "./Components/Car";
-import Count from "./Components/Count";
-import Warning from "./Components/Warning";
-import Welcome from "./Components/Welcome";
 import { Form, Navbar, NavbarBrand } from "reactstrap";
 import MenuComponent from "./Components/MenuComponent";
-import {DISHES} from "./Components/dish";
+import { DISHES } from "./Components/dish";
 import MainComponent from "./Components/MainComponent";
-// import Hello from "./Components/Hello";
-// import { Hello2 } from "./Components/Hello2";
+import { BrowserRouter } from "react-router-dom";
+import Contactus from "./Components/Contactus";
+import { Routes, Route } from "react-router";
+import HomeComponent from "./Components/HomeComponent";
+import HeaderComponennt from "./Components/HeaderComponennt";
+import FooterComponent from "./Components/FooterComponent";
+import 'flowbite';
 
-// function App() {
-//   const data = { id: "1", name: "da" };
-//   // const name = "da";
-//   // const element = <h1>hello,{name}</h1>;
-//   return (
-//     <div className="App">
-//       {/* <h1>Hello World!</h1>
-//     //   <h1>{element}</h1>
-//     //   <h1>hello{formatName(user)}</h1> */}
-//       <Hello msg="em chan co" user={data} />
-//       <Hello2 />
-//     </div>
-//   );
-// }
-// function formatName(user) {
-//   return user.firstName + "" + " " + user.lastName;
-// }
-// const user = {
-//   firstName: "DA",
-//   lastName: "vt",
-// };
-// const element = <h1>hello{formatName(user)}</h1>;
-// const comment1 = {
-//   date: new Date(),
-//   text: "I hope you enjoy my restaurant! ",
-//   author: {
-//     name: "alberto",
-//     avatarUrl: "./images/alberto.png",
-//   },
-// };
 
 // function App() {
 //   return (
@@ -73,23 +44,31 @@ import MainComponent from "./Components/MainComponent";
 //     </div>
 //   );
 // }
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
-  //   this.state={
-  //     dishes: DISHES
-  //   };
+    this.state = {
+      dishes: DISHES,
+    };
   }
 
   render() {
-    return(
-      // <MenuComponent dishes={DISHES}/>
-      <div className="App">
-        <MainComponent/>
-      </div>
-    )
+    return (
+      <BrowserRouter>
+        <HeaderComponennt />
+        {/* <MenuComponent /> */}
+        <Routes>
+          <Route exact path="/" element={<HomeComponent />} />
+          <Route
+            exact
+            path="/menu"
+            element={<MenuComponent dishes={this.state.dishes} />}
+          />
+        </Routes>
+        <FooterComponent />
+      </BrowserRouter>
+    );
   }
-
 }
 
 export default App;

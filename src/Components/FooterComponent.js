@@ -35,27 +35,40 @@ export default function FooterComponent(props) {
               121, Clear Water Bay <br />
               Clear Water, Lowloon <br />
               Hong Kong <br />
-              <i><PhoneIcon/></i> : +1449474722 <br />
-              <i><PhoneIcon/></i> : +1436374722 <br />
-              <i><MailIcon/>
-              <a href="mailto:confusion@gmail.com.net">confusion@gmail</a>
+              <i>
+                <PhoneIcon />
+              </i>{" "}
+              : +1449474722 <br />
+              <i>
+                <PhoneIcon />
+              </i>{" "}
+              : +1436374722 <br />
+              <i>
+                <MailIcon />
+                <a href="mailto:confusion@gmail.com.net">confusion@gmail</a>
               </i>
             </address>
           </div>
-          <div className="icon" >
+          <div className="icon">
             <div className="text-center">
-              <a href="" className="btn btn-social-icon btn-facebook">
-                <i ><FacebookIcon/></i>
-              </a>
-              <a href="" className="btn btn-social-icon btn-linkedin">
-                <i><TwitterIcon/></i>
-              </a>
-              <a href="" className="btn btn-social-icon btn-twitter">
-                <i ><InstagramIcon/></i>
-              </a>
-              <a href="" className="btn btn-social-icon ">
-              <i ><GoogleIcon/></i>
-              </a>
+              <button className="btn btn-primary">
+                <i>
+                  <FacebookIcon />
+                </i>
+              </button>
+              <button className="btn btn-primary">
+                <i>
+                  <TwitterIcon />
+                </i>
+              </button>
+              <button className="btn btn-info">
+                <InstagramIcon />
+              </button>
+              <button className="btn btn-danger">
+                <i>
+                  <GoogleIcon />
+                </i>
+              </button>
             </div>
           </div>
         </div>

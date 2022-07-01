@@ -3,22 +3,32 @@ import { Navbar, NavbarBrand } from "reactstrap";
 import MenuComponent from "./MenuComponent";
 import DishdetailComponent from "./DishdetailComponent";
 import { DISHES } from "./dish";
-import HeaderComponent from "./HeaderComponennt";
 import FooterComponent from "./FooterComponent";
 import HomeComponent from "./HomeComponent";
+import { COMMENTS } from "../shared/comments";
+import { PROMOTIONS } from "../shared/promotions";
+import { LEADERS } from "../shared/leaders";
+import HeaderComponennt from "./HeaderComponennt";
+import ContactComponent from "./ContactComponent";
+import AboutComponent from "./AboutComponent";
 import {
   Switch,
   Route,
   Routes,
   Redirect,
   BrowserRouter,
+  useParams,
 } from "react-router-dom";
+import { parse } from "postcss";
 
 export default class MainComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dishes: DISHES,
+      comments: COMMENTS,
+      promotions: PROMOTIONS,
+      leaders: LEADERS,
       // selectedDish: null,
     };
   }
@@ -27,45 +37,69 @@ export default class MainComponent extends Component {
   // }
   render() {
     const HomePage = () => {
-      return <HomeComponent />;
-    };
-    return (
-      <div>
-        {/* <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar>
-        <MenuComponent
-          dishes={this.state.dishes}
-          onClick={(dishId) => this.onDishSelect(dishId)}
+      return (
+        <HomeComponent
+          dish={this.state.dishes.filter((dish) => dish.featured[0])}
+          promotion={this.state.promotions.filter((promo) => promo.featured[0])}
+          leader={this.state.leaders.filter((leader) => leader.featured[0])}
         />
-        <DishdetailComponent
+      );
+    };
+    const DishWithId = () => {
+      const {dishId} = useParams();
+      return (
+        <>
+        <h1>sdfsdfsdfz</h1>
+        {/* <DishdetailComponent
           dish={
             this.state.dishes.filter(
-              (dish) => dish.id === this.state.selectedDish
+              (dish) => dish.id === parseInt(dishId, 10)
             )[0]
           }
         /> */}
-        <HeaderComponent />
-        <MenuComponent
-          dishes={this.state.dishes}
-          onClick={(dishId) => this.onDishSelect(dishId)}
-        />
-        <DishdetailComponent
-          dish={this.state.dishes.filter(
-            (dish) => dish.id === this.state.selectedDish[0]
-          )}
-        />
-        {/* <BrowserRouter>
-            <MenuComponent/>
-            <Routes>
-              <Route exact path="/" element={<HomeComponent />} />
-              <Route exact path="/menu" component={<MenuComponent />} />
-            </Routes>
-            <FooterComponent />
-          </BrowserRouter> */}
-        <FooterComponent />
+        </>
+      );
+      return <h1>asdasd</h1>
+    };
+    return (
+      <div>
+       
+        <BrowserRouter>
+          <HeaderComponennt />
+          {/* <AboutComponent /> */}
+          {/* <HomeComponent /> */}
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <HomeComponent
+                  dish={this.state.dishes.filter((dish) => dish.featured)}
+                  promotion={this.state.promotions.filter(
+                    (promo) => promo.featured
+                  )}
+                  leader={this.state.leaders.filter(
+                    (leader) => leader.featured
+                  )}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/menu"
+              element={<MenuComponent dishes={this.state.dishes} />}
+            />
+            <Route exact path="/contactus" element={<ContactComponent />} />
+            <Route path="/menu/:dishId"
+              element={<DishWithId/>}
+            />
+            <Route
+              exact
+              path="/aboutus"
+              element={<AboutComponent leaders={this.state.leaders} />}
+            />
+          </Routes>
+          <FooterComponent />
+        </BrowserRouter>
       </div>
     );
   }

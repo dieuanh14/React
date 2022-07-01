@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BreadcrumbItem } from "react-bootstrap";
 import {
   Card,
   CardImg,
@@ -6,79 +7,109 @@ import {
   CardText,
   CardBody,
   CardTitle,
+  Breadcrumb,
 } from "reactstrap";
-export default function DishdetailComponent(props) {
-  //   function renderDishes({ dish }) {
-  //     return (
-  //       <div className="col-12 col-sm-5">
-  //         <Card>
-  //           <CardImg top src={dish.image} alt={dish.name} />
-  //           <CardBody>
-  //             <CardTitle>{dish.name}</CardTitle>
-  //             <CardText>{dish.description}</CardText>
-  //           </CardBody>
-  //         </Card>
-  //       </div>
-  //     );
-  //   }
+import { Link } from "react-router-dom";
 
-  //   function renderComments({ comments }) {
-  //     const comment = comments.map((item) => {
-  //       return (
-  //         <div>
-  //           <p>{item.comment}</p>
-  //           <p>
-  //             {item.author} {item.date}
-  //           </p>
-  //         </div>
-  //       );
-  //     });
-  //     return (
-  //       <div className="col-12 col-sm-7">
-  //         {comment}
-  //       </div>
-  //     );
-  //   }
+export function RenderDish({ dish }) {
+  return (
+    <div className="col-12 col-sm-5">
+      <Card>
+        <CardImg top src={dish.image} alt={dish.name} />
+        <CardBody>
+          <CardTitle>{dish.name}</CardTitle>
+          <CardText>{dish.description}</CardText>
+        </CardBody>
+      </Card>
+    </div>
+  );
+}
 
-  if (props.dish != null) {
-    const comment = props.dish.map((item) => {
-      return (
-        <div key={item.id}>
-          <p>{item.comment}</p>
-          <p>
-            {item.author} {item.date}
-          </p>
-          <p>
-            {item.comments.map((comment) => (
-              <div key={comment.id}>
-                <p>{comment.rating}</p>
-                <p>{comment.comment}</p>
-                <p>{comment.author}</p>
-                <p>{comment.date}</p>
-              </div>
-            ))}
-          </p>
-        </div>
-      );
-    });
-    const dish = props.dish;
+export function RenderComments({ comments }) {
+  const comment = comments.map((item) => {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-sm-5">
-            <Card>
-              <CardImg top src={dish.image} />
-              <CardBody>
-                <CardTitle>{dish.name}</CardTitle>
-                <CardText>{dish.description}</CardText>
-              </CardBody>
-            </Card>
-          </div>
-          <div className="col-12 col-sm-7">{comment}</div>
-        </div>
+      <div>
+        <p>{item.comment}</p>
+        <p>
+          {item.author} {item.date}
+        </p>
       </div>
     );
-  } else {
-    return <div></div>;
+  });
+  return (
+    <div className="col-12 col-sm-7">
+      {comment}
+    </div>
+  );
+}
+export default function DishdetailComponent(props) {
+  if(props.dish !=null){
+  const dish=this.props.dish;
+  const comments=this.props.comments;
+  return(
+    <div className="container">
+      <div className="row">
+        <Breadcrumb>
+          <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+          <BreadcrumbItem active>{dish.name}</BreadcrumbItem>
+        </Breadcrumb>
+        <div className="col-12">
+          <h3>{dish.name}</h3>
+          <hr/>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 col-md-5 m-1">
+          <RenderDish dish={dish}/>
+        </div>
+        <div className="col-12 col-md-5 m-1">
+          <RenderComments comments={comments}/>
+        </div>
+      </div>
+    </div>
+  );
+  }else{
+    return
   }
+  // if (props.dish != null) {
+  //   const comment = props.dish.map((item) => {
+  //     return (
+  //       <div key={item.id}>
+  //         <p>{item.comment}</p>
+  //         <p>
+  //           {item.author} {item.date}
+  //         </p>
+  //         <p>
+  //           {item.comments.map((comment) => (
+  //             <div key={comment.id}>
+  //               <p>{comment.rating}</p>
+  //               <p>{comment.comment}</p>
+  //               <p>{comment.author}</p>
+  //               <p>{comment.date}</p>
+  //             </div>
+  //           ))}
+  //         </p>
+  //       </div>
+  //     );
+  //   });
+  //   const dish = props.dish;
+  //   return (
+  //     <div className="container">
+  //       <div className="row">
+  //         <div className="col-12 col-sm-5">
+  //           <Card>
+  //             <CardImg top src={dish.image} />
+  //             <CardBody>
+  //               <CardTitle>{dish.name}</CardTitle>
+  //               <CardText>{dish.description}</CardText>
+  //             </CardBody>
+  //           </Card>
+  //         </div>
+  //         <div className="col-12 col-sm-7">{comment}</div>
+  //       </div>
+  //     </div>
+  //   );
+  // } else {
+  //   return <div></div>;
+  // }
 }

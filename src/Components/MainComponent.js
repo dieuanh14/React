@@ -39,31 +39,32 @@ export default class MainComponent extends Component {
     const HomePage = () => {
       return (
         <HomeComponent
-          dish={this.state.dishes.filter((dish) => dish.featured[0])}
-          promotion={this.state.promotions.filter((promo) => promo.featured[0])}
-          leader={this.state.leaders.filter((leader) => leader.featured[0])}
+          dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+          promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+          leader={this.state.leaders.filter((leader) => leader.featured)[0]}
         />
       );
     };
+
     const DishWithId = () => {
       const {dishId} = useParams();
       return (
         <>
         <h1>sdfsdfsdfz</h1>
-        {/* <DishdetailComponent
+        <DishdetailComponent
           dish={
             this.state.dishes.filter(
               (dish) => dish.id === parseInt(dishId, 10)
             )[0]
           }
-        /> */}
+        />
         </>
       );
       return <h1>asdasd</h1>
     };
     return (
       <div>
-       
+
         <BrowserRouter>
           <HeaderComponennt />
           {/* <AboutComponent /> */}
@@ -72,6 +73,7 @@ export default class MainComponent extends Component {
             <Route
               path="/home"
               element={
+                // <HomePage/>
                 <HomeComponent
                   dish={this.state.dishes.filter((dish) => dish.featured)}
                   promotion={this.state.promotions.filter(
@@ -104,3 +106,4 @@ export default class MainComponent extends Component {
     );
   }
 }
+

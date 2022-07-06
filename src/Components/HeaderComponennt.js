@@ -33,7 +33,7 @@ class HeaderComponennt extends Component {
   }
   handleLogin(event){
     this.toggle();
-    alert("Username: "+this.username.value + "Password: "+this.password.value + "Remember: "+this.remember.checked);
+    alert("Username: " +this.username.value + "Password: "+this.password.value + "Remember: "+this.remember.checked);
     event.preventDefault();
   }
   toggleNav() {

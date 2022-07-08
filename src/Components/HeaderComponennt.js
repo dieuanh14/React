@@ -132,8 +132,8 @@ class HeaderComponennt extends Component {
             </Form>
           </ModalBody>
         </Modal>
-        <div className="container">
-          <div className="row row-header">
+        <div className="container" >
+          <div className="row row-header" style={{Minwidth:'100%'}}>
             <div className="col-12">
               <h1>Ristorante Con Fusion</h1>
               <p>We take inspiration from the World's</p>

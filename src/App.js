@@ -84,7 +84,9 @@ class App extends React.Component {
       //   </Routes>
       //   <FooterComponent />
       // </BrowserRouter>
+      <div>
       <MainComponent/>
+      </div>
     );
   }
 }

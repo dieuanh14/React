@@ -10,10 +10,23 @@ import {
 import { Link } from "react-router-dom";
 
 function AboutComponent(props) {
-  const lead =
+  const leaders =
     props.leaders &&
     props.leaders.map((leader) => {
-      return <p>Leader {leader.name}</p>;
+      return (
+        <div className="col-12">
+          {/* <p>Leader: {leader.name}</p> */}
+          <Media className="row" key={leader.id} >
+            <Media className="">
+              <Media object src={leader.image} />
+            </Media>
+            <Media className="" style={{display:'grid',gridTemplateRows:'0.5fr'}}>
+              <Media heading>{leader.name}</Media>
+              <p>{leader.description}</p>
+            </Media>
+          </Media>
+        </div>
+      );
     });
 
   return (
@@ -92,7 +105,24 @@ function AboutComponent(props) {
           <h2>Corporate Leadership</h2>
         </div>
         <div className="col-12">
-          <Media list>{lead}</Media>
+          {/* <Media list>
+            {leaders.map((leader) => {
+              return (
+                <Media className="row" key={leader.id}>
+                  <Media className="col-3">
+                    <Media object src={leader.image} />
+                  </Media>
+                  <Media className="col-9 ml-5">
+                    <Media heading>{leader.name}</Media>
+                    <p>{leader.description}</p>
+                  </Media>
+                </Media>
+              );
+            })}
+          </Media> */}
+          <Media list>
+            <div>{leaders}</div>
+          </Media>
         </div>
       </div>
     </div>

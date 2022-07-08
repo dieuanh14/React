@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 import MenuComponent from "./MenuComponent";
 import DishdetailComponent from "./DishdetailComponent";
-import { DISHES } from "./dish";
+import { DISHES } from "../shared/dishes";
 import FooterComponent from "./FooterComponent";
 import HomeComponent from "./HomeComponent";
 import { COMMENTS } from "../shared/comments";
@@ -19,7 +19,7 @@ import {
   BrowserRouter,
   useParams,
 } from "react-router-dom";
-import { parse } from "postcss";
+import { comment, parse } from "postcss";
 
 export default class MainComponent extends Component {
   constructor(props) {
@@ -46,54 +46,36 @@ export default class MainComponent extends Component {
       );
     };
 
-    const DishWithId = () => {
-      const {dishId} = useParams();
+    const DishWithId = ({ match }) => {
       return (
         <>
-        <h1>sdfsdfsdfz</h1>
-        <DishdetailComponent
-          dish={
-            this.state.dishes.filter(
-              (dish) => dish.id === parseInt(dishId, 10)
-            )[0]
-          }
-        />
+          <h1>sdfsdfsdfz</h1>
+          <DishdetailComponent
+            dish={
+              this.state.dishes.filter(
+                (dish) => dish.id === parseInt(match.params.dishId, 10)
+              )[0]
+            }
+            comments={this.state.comments.filter(
+              (comment) => comment.dishId === parseInt(match.params.dishId, 10)
+            )}
+          />
         </>
       );
-      return <h1>asdasd</h1>
     };
     return (
       <div>
-
         <BrowserRouter>
           <HeaderComponennt />
-          {/* <AboutComponent /> */}
-          {/* <HomeComponent /> */}
           <Routes>
-            <Route
-              path="/home"
-              element={
-                // <HomePage/>
-                <HomeComponent
-                  dish={this.state.dishes.filter((dish) => dish.featured)}
-                  promotion={this.state.promotions.filter(
-                    (promo) => promo.featured
-                  )}
-                  leader={this.state.leaders.filter(
-                    (leader) => leader.featured
-                  )}
-                />
-              }
-            />
+            <Route path="/home" element={<HomePage />} />
             <Route
               exact
               path="/menu"
               element={<MenuComponent dishes={this.state.dishes} />}
             />
             <Route exact path="/contactus" element={<ContactComponent />} />
-            <Route path="/menu/:dishId"
-              element={<DishWithId/>}
-            />
+            <Route path="/menu/:dishId" element={<DishWithId />} />
             <Route
               exact
               path="/aboutus"
@@ -106,4 +88,3 @@ export default class MainComponent extends Component {
     );
   }
 }
-

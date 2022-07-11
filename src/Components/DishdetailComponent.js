@@ -43,9 +43,9 @@ export function RenderComments({ comments }) {
   );
 }
 export default function DishdetailComponent(props) {
-  if(this.props.dish !=null){
-  const dishes=this.props.dish;
-  const comments=this.props.comments;
+  if(props.dish !=null){
+  const dishes=props.dish;
+  const comments=props.comments;
   return(
     <div className="container">
       <div className="row">

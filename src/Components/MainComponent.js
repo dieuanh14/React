@@ -46,18 +46,19 @@ export default class MainComponent extends Component {
       );
     };
 
-    const DishWithId = ({ match }) => {
+    const DishWithId = () => {
+      const params = useParams();
+      console.log(params);
       return (
         <>
-          <h1>sdfsdfsdfz</h1>
           <DishdetailComponent
             dish={
               this.state.dishes.filter(
-                (dish) => dish.id === parseInt(match.params.dishId, 10)
+                (dish) => dish.id === parseInt(params.dishId)
               )[0]
             }
             comments={this.state.comments.filter(
-              (comment) => comment.dishId === parseInt(match.params.dishId, 10)
+              (comment) => comment.dishId === parseInt(params.dishId)
             )}
           />
         </>

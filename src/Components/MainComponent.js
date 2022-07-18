@@ -29,12 +29,9 @@ export default class MainComponent extends Component {
       comments: COMMENTS,
       promotions: PROMOTIONS,
       leaders: LEADERS,
-      // selectedDish: null,
     };
   }
-  // onDishSelect(dishId) {
-  //   this.setState({ selectedDish: dishId });
-  // }
+
   render() {
     const HomePage = () => {
       return (

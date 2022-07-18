@@ -69,45 +69,5 @@ export default function DishdetailComponent(props) {
     </div>
   );
   }
-  // if (props.dish != null) {
-  //   const comment = props.dish.map((item) => {
-  //     return (
-  //       <div key={item.id}>
-  //         <p>{item.comment}</p>
-  //         <p>
-  //           {item.author} {item.date}
-  //         </p>
-  //         <p>
-  //           {item.comments.map((comment) => (
-  //             <div key={comment.id}>
-  //               <p>{comment.rating}</p>
-  //               <p>{comment.comment}</p>
-  //               <p>{comment.author}</p>
-  //               <p>{comment.date}</p>
-  //             </div>
-  //           ))}
-  //         </p>
-  //       </div>
-  //     );
-  //   });
-  //   const dish = props.dish;
-  //   return (
-  //     <div className="container">
-  //       <div className="row">
-  //         <div className="col-12 col-sm-5">
-  //           <Card>
-  //             <CardImg top src={dish.image} />
-  //             <CardBody>
-  //               <CardTitle>{dish.name}</CardTitle>
-  //               <CardText>{dish.description}</CardText>
-  //             </CardBody>
-  //           </Card>
-  //         </div>
-  //         <div className="col-12 col-sm-7">{comment}</div>
-  //       </div>
-  //     </div>
-  //   );
-  // } else {
-  //   return <div></div>;
-  // }
+
 }

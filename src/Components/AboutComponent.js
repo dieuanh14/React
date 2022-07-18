@@ -105,21 +105,6 @@ function AboutComponent(props) {
           <h2>Corporate Leadership</h2>
         </div>
         <div className="col-12">
-          {/* <Media list>
-            {leaders.map((leader) => {
-              return (
-                <Media className="row" key={leader.id}>
-                  <Media className="col-3">
-                    <Media object src={leader.image} />
-                  </Media>
-                  <Media className="col-9 ml-5">
-                    <Media heading>{leader.name}</Media>
-                    <p>{leader.description}</p>
-                  </Media>
-                </Media>
-              );
-            })}
-          </Media> */}
           <Media list>
             <div>{leaders}</div>
           </Media>

@@ -55,7 +55,6 @@ class HeaderComponennt extends Component {
             </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar className="ml-auto">
-                
                 <NavItem>
                   <NavLink className="nav-link">
                     <i>
